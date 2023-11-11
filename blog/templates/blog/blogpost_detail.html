@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+
+{% load my_tags %}
+
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center h-50">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    <div class="card shadow-lg p-4">
+                        <table class="table table-striped">
+                            <tr class="align-self-lg-center">
+                                <img class="card-img-top mb-2" style="max-width: 35%"
+                                     src="{% mediafile object.preview_image %} "/>
+                            </tr>
+                            <tr>
+                                <td class="w-25">Заголовок</td>
+                                <td>{{ object.title }}</td>
+                            </tr>
+                            <tr>
+                                <td class="w-25">Слаг</td>
+                                <td>{{ object.slug }}</td>
+                            </tr>
+                            <tr>
+                                <td class="w-25">Содержание</td>
+                                <td>{{ object.content }}</td>
+                            </tr>
+                            <tr>
+                                <td class="w-25">ID записи</td>
+                                <td>{{ object.id }}</td>
+                            </tr>
+                            <tr>
+                                <td class="w-25">Создана</td>
+                                <td>{{ object.created_at }}</td>
+                            </tr>
+                            <tr>
+                                <td class="w-25">Просмотры</td>
+                                <td>{{ object.views_count }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}>

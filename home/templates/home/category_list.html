@@ -1,0 +1,12 @@
+{% extends 'home/base.html' %}
+{% block content %}
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for object in object_list %}
+                    {% include 'home/includes/inc_category.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

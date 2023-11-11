@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+                {% for object in object_list %}
+
+                    <div class="col-lg-6 {% if forloop.counter <= 2 %}col-md-12{% else %}col-md-6{% endif %} mb-4">
+                        <div class="client-item rounded shadow">
+                            <div class="card shadow-sm">
+                                <div class="col">
+                                    <div class="card shadow-sm">
+                                        <div class="d-flex justify-content-between align-items-center p-3">
+                                            <div class="card-body">
+                                                <h4 class="card-text">{{ object.full_name|title }}</h4>
+                                                <p class="mb-1 card-text"><strong>Почта:</strong> {{ object.email }}</p>
+                                                <p class="mb-0 card-text">
+                                                    <strong>Комментарий:</strong> {{ object.comment }}</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group"></div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a href="{% url 'home:clients_update' object.pk %}" type="button"
+                                                       class="btn btn-sm btn-outline-secondary">
+                                                        Edit
+                                                    </a>
+                                                    <a href="{% url 'home:clients_delete' object.pk %}" type="button"
+                                                       class="btn btn-sm btn-outline-secondary">
+                                                        Delete
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+<div class="offcanvas-body">
+    <ul class="navbar-nav flex-grow-1 justify-content-between">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home:index' %}">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'home:category_list' %}">Наши клиенты</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'client:mailing_list' %}">Рассылки</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'email:message_list' %}">Список рассылок</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'blog:blog_list' %}">Блог</a></li>
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' %}">{{ user.email }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'users:logout' %}">Выход</a></li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'users:registration' %}">Регистрация</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'users:login' %}">Вход</a></li>
+        {% endif %}
+    </ul>
+</div>

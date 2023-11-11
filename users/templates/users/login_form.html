@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center h-50">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    <div class="card shadow-lg p-4">
+                        <h4 class="text-center mb-4">Авторизоваться</h4>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-outline-success w-100">Вход</button>
+                            <br>
+                            <br>
+                            <p class="my-3 text-center">Еще не зарегистрированы?
+                                <a href="{% url 'users:registration' %}"
+                                   class="text-primary fw-bold">Создать аккаунт!</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
